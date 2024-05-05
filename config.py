@@ -2,7 +2,8 @@ win_width = 500
 win_height = 500
 fps = 60
 scale = 50
-point_size = 2
+point_size = 1
+line_width = 1
 
 RED = (255, 0, 0)
 GREEN = (0, 255, 0)
@@ -24,3 +25,4 @@ BKG_COL = (16, 16, 48)
 GRID_COL = (32, 32, 64)
 POINT_COL = BLUE
 LINE_COL = GREEN
+PLANE_COL = RED

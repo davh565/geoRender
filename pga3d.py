@@ -106,6 +106,10 @@ class PGA3D:
     def __len__(self):
         return len(self.mvec)
 
+    # //***********************
+    # // PGA3D.Reverse : res = ~a
+    # // Reverse the order of the basis blades.
+    # //***********************
     def __invert__(a):
         """PGA3D.Reverse
 
@@ -442,6 +446,10 @@ class PGA3D:
 
     __rmul__ = __mul__
 
+    # //***********************
+    # // PGA3D.Wedge : res = a ^ b
+    # // The outer product. (MEET)
+    # //***********************
     def __xor__(a, b):
         res = a.mvec.copy()
         res[0] = b[0] * a[0]
@@ -515,6 +523,10 @@ class PGA3D:
         )
         return PGA3D.fromarray(res)
 
+    # //***********************
+    # // PGA3D.Vee : res = a & b
+    # // The regressive product. (JOIN)
+    # //***********************
     def __and__(a, b):
         res = a.mvec.copy()
         res[15] = 1 * (a[15] * b[15])
@@ -618,6 +630,10 @@ class PGA3D:
         )
         return PGA3D.fromarray(res)
 
+    # //***********************
+    # // PGA3D.Dot : res = a | b
+    # // The inner product.
+    # //***********************
     def __or__(a, b):
         res = a.mvec.copy()
         res[0] = (
@@ -779,6 +795,10 @@ class PGA3D:
         """
         return b + -1 * a
 
+    # //***********************
+    # // PGA3D.smul : res = a * b
+    # // scalar/multivector multiplication
+    # //***********************
     def smul(a, b):
         res = a.mvec.copy()
         res[0] = a * b[0]
@@ -799,6 +819,10 @@ class PGA3D:
         res[15] = a * b[15]
         return PGA3D.fromarray(res)
 
+    # //***********************
+    # // PGA3D.muls : res = a * b
+    # // multivector/scalar multiplication
+    # //***********************
     def muls(a, b):
         res = a.mvec.copy()
         res[0] = a[0] * b
@@ -819,6 +843,10 @@ class PGA3D:
         res[15] = a[15] * b
         return PGA3D.fromarray(res)
 
+    # //***********************
+    # // PGA3D.sadd : res = a + b
+    # // scalar/multivector addition
+    # //***********************
     def sadd(a, b):
         res = a.mvec.copy()
         res[0] = a + b[0]
@@ -839,6 +867,10 @@ class PGA3D:
         res[15] = b[15]
         return PGA3D.fromarray(res)
 
+    # //***********************
+    # // PGA3D.adds : res = a + b
+    # // multivector/scalar addition
+    # //***********************
     def adds(a, b):
         res = a.mvec.copy()
         res[0] = a[0] + b
@@ -859,6 +891,10 @@ class PGA3D:
         res[15] = a[15]
         return PGA3D.fromarray(res)
 
+    # //***********************
+    # // PGA3D.ssub : res = a - b
+    # // scalar/multivector subtraction
+    # //***********************
     def ssub(a, b):
         res = a.mvec.copy()
         res[0] = a - b[0]
@@ -879,6 +915,10 @@ class PGA3D:
         res[15] = -b[15]
         return PGA3D.fromarray(res)
 
+    # //***********************
+    # // PGA3D.subs : res = a - b
+    # // multivector/scalar subtraction
+    # //***********************
     def subs(a, b):
         res = a.mvec.copy()
         res[0] = a[0] - b
